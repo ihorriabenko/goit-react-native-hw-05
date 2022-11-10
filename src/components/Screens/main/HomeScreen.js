@@ -9,19 +9,20 @@ const Tab = createBottomTabNavigator();
 
 export const HomeScreen = () => {
   return (
-    <Tab.Navigator tabBarOptions={{ showLabel: false }} >
+    <Tab.Navigator
+      tabBarOptions={{ showLabel: false }}
+    >
       <Tab.Screen
         name="Posts"
         component={PostsScreen}
         options={{
           tabBarIcon: () => (
-            <Image style={styles.bottomTab} source={require("../../../assets/images/posts.png")} />
+            <Image
+              style={styles.bottomTab}
+              source={require("../../../../assets/images/posts.png")}
+            />
           ),
-          headerRight: () => (
-            <Image source={require("../../../assets/images/logOut.png")} style={{
-              marginRight: 10,
-            }}/>
-          ),
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -29,7 +30,10 @@ export const HomeScreen = () => {
         component={CreatePostsScreen}
         options={{
           tabBarIcon: () => (
-            <Image style={styles.bottomTab} source={require("../../../assets/images/addPost.png")} />
+            <Image
+              style={styles.bottomTab}
+              source={require("../../../../assets/images/addPost.png")}
+            />
           ),
         }}
       />
@@ -38,7 +42,10 @@ export const HomeScreen = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: () => (
-            <Image style={styles.bottomTab} source={require("../../../assets/images/profile.png")} />
+            <Image
+              style={styles.bottomTab}
+              source={require("../../../../assets/images/profile.png")}
+            />
           ),
         }}
       />
@@ -54,5 +61,5 @@ const styles = StyleSheet.create({
   },
   bottomTab: {
     marginTop: 9,
-  }
+  },
 });

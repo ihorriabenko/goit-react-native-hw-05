@@ -9,9 +9,9 @@ import { useRoute } from "./router";
 const fontsLoading = async () => {
   try {
     await Font.loadAsync({
-      RReg: require("./assets/fonts/Roboto-Regular.ttf"),
-      RMed: require("./assets/fonts/Roboto-Medium.ttf"),
-      RBold: require("./assets/fonts/Roboto-Bold.ttf"),
+      RReg: require("../assets/fonts/Roboto-Regular.ttf"),
+      RMed: require("../assets/fonts/Roboto-Medium.ttf"),
+      RBold: require("../assets/fonts/Roboto-Bold.ttf"),
     });
   } catch (error) {
     console.error(error.message);

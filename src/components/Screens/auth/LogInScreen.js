@@ -13,12 +13,11 @@ import {
 import { useState } from "react";
 
 const userInitData = {
-  username: "",
   email: "",
   password: "",
 };
 
-export const RegistrationScreen = ({ navigation }) => {
+export const LogInScreen = ({ navigation }) => {
   const [isKeyboardShow, setIsKeyboardShow] = useState(false);
   const [userData, setUserData] = useState(userInitData);
 
@@ -35,7 +34,7 @@ export const RegistrationScreen = ({ navigation }) => {
     <Pressable style={styles.pressContainer} onPress={handleOutKeyboardClick}>
       <ImageBackground
         style={styles.image}
-        source={require("../../../assets/images/PhotoBG.png")}
+        source={require("../../../../assets/images/PhotoBG.png")}
       >
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -43,24 +42,11 @@ export const RegistrationScreen = ({ navigation }) => {
           <View
             style={{
               ...styles.wrapper,
-              marginBottom: isKeyboardShow ? -165 : 0,
+              marginBottom: isKeyboardShow ? -230 : 0,
             }}
           >
             <View style={styles.form}>
-              <Text style={styles.title}>Sign Up</Text>
-              <TextInput
-                style={styles.input}
-                placeholder={"Username"}
-                placeholderTextColor={"#BDBDBD"}
-                value={userData.username}
-                onFocus={handleInputFocus}
-                onChangeText={(value) =>
-                  setUserData((prevState) => ({
-                    ...prevState,
-                    username: value,
-                  }))
-                }
-              />
+              <Text style={styles.title}>Log In</Text>
               <TextInput
                 style={styles.input}
                 placeholder={"Email"}
@@ -96,10 +82,13 @@ export const RegistrationScreen = ({ navigation }) => {
                   setUserData(userInitData);
                 }}
               >
-                <Text style={styles.btnTitle}>Sign Up</Text>
+                <Text style={styles.btnTitle}>Log In</Text>
               </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate("LogIn")}>
-                <Text style={styles.text}>Sign in instead</Text>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => navigation.navigate("Registration")}
+              >
+                <Text style={styles.text}>Create account</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -107,7 +96,7 @@ export const RegistrationScreen = ({ navigation }) => {
       </ImageBackground>
     </Pressable>
   );
-}
+};
 
 const styles = StyleSheet.create({
   pressContainer: {
